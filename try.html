@@ -1,0 +1,233 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Great Vibes', cursive;
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-position: center;
+            background-image:linear-gradient(rgba(255, 255, 255, 0.2), rgb(209, 41, 41)), url(https://media.istockphoto.com/id/1141906552/photo/indian-hindu-couple-holding-each-other-hands-during-their-marriage-symbolising-love-and.jpg?s=612x612&w=0&k=20&c=brG8OkGBo5-tIABHlnGtVMu9X4lAC8ebpqGA2Xire6E=);
+            background-color:rgba(255, 255, 255, 0.2);
+            border: 5px solid rgb(164, 165, 152);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); 
+        }
+
+        header, nav, main, footer {
+            padding: 20px;
+        }
+
+        h1, h2 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        .clickable-heading {
+            cursor: pointer;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        .hidden-paragraph, .hidden-gallery, .hidden-budget {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Budget Tracker Styles */
+        .budget-tracker {
+            background-color: rgba(237, 230, 230, 0.8); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: white;
+            color: rgb(35, 34, 34);
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: pink;
+            color: rgb(125, 115, 115);
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: lightgoldenrodyellow;
+        }
+    </style>
+    <title>Our Wedding</title>
+</head>
+<body>
+    <header>
+        <h1><u>Bandhan </u></h1>
+        <p>May lord bless your togetherness..!!</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><span class="clickable-heading" onclick="toggleAboutParagraph(1)">About Us</span></li>
+            <li><span class="clickable-heading" onclick="toggleGallery()">Gallery</span></li>
+            <li><span class="clickable-heading" onclick="toggleRSVP()">RSVP</span></li>
+            <li><span class="clickable-heading" onclick="toggleContact()">Contact</span></li>
+            <li><span class="clickable-heading" onclick="toggleBudget()">Budget</span></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="home">
+            <h2>Welcome to Our Wedding Website</h2>
+            <p>Let's celebrate your togetherness.</p>
+        </section>
+        <section id="about1">
+            <h2 class="clickable-heading" onclick="toggleAboutParagraph(1)">About Us</h2>
+            <p class="hidden-paragraph">Welcome to Bandhan, where dreams become timeless memories. We are more than just a platform; we are the architects of your love story. In the heart of our journey lies a passion for celebrating love in all its forms. Our story begins with a commitment to curate a seamless and joyous wedding experience for every couple. From enchanting proposals to the grandeur of the big day, we are your companions, ensuring that each chapter is as magical as the next. At Bandhan, we weave dreams into reality, because we understand that your love is a tale that deserves to be told with elegance, precision, and boundless love.</p>
+        </section>
+        <section id="gallery" class="hidden-gallery">
+            <h2>Photo Gallery</h2>
+            <p>Explore beautiful moments captured during our journey.</p>
+            <!-- Add your gallery images here -->
+            <img src="wed3.jpg" alt="Image 3">
+            <img src="wed4.jpg" alt="Image 2">
+            <img src="wed5.jpg" alt="Image 3">
+            <img src="wed6.jpg" alt="Image 3">
+            <img src="wed7.jpg" alt="Image 3">
+            <img src="wed8.jpg" alt="Image 3">
+        </section>
+        <section id="rsvp" class="hidden-paragraph">
+            <h2>RSVP</h2>
+            <p>Let us know if you want us to make your special day more memorable.</p>
+            <form id="rsvpForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your name">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" placeholder="Your email">
+                <label for="attendees">Number of Attendees:</label>
+                <input type="text" id="attendees" name="attendees" placeholder="Number of attendees">
+                <label for="food">Food Preferences:</label>
+                <input type="text" id="food" name="food" placeholder="Food preferences">
+                <label for="location">Preferred Wedding Location:</label>
+                <input type="text" id="location" name="location" placeholder="Preferred wedding location">
+                <button type="button" onclick="submitRSVP()">Submit RSVP</button>
+            </form>
+        </section>
+        <section id="contact" class="hidden-paragraph">
+            <h2>Contact Us</h2>
+            <p>Contact us at +1 (555) 123-4567 or connect us by 
+            info@bandhanweddings.com</p>
+        </section>
+        <section id="budget" class="budget-tracker hidden-budget">
+            <h2>Budget Tracker</h2>
+            <form id="budgetForm">
+                <label for="expense">Expense:</label>
+                <input type="text" id="expense" name="expense" placeholder="Enter expense">
+                <label for="amount">Amount:</label>
+                <input type="text" id="amount" name="amount" placeholder="Enter amount">
+                <button type="button" onclick="addExpense()">Add Expense</button>
+            </form>
+            <table id="budgetTable">
+                <thead>
+                    <tr>
+                        <th>Expense</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Expense entries will be added here dynamically -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- New Section: Countdown Timer -->
+        <section id="countdown">
+            <h2>Countdown to Our Wedding</h2>
+            <div id="countdown-timer"></div>
+        </section>
+
+        <!-- New Section: Fun Facts -->
+        <section id="fun-facts">
+            <h2>Fun Facts About Us</h2>
+            <ul>
+                <li>We met at a friend's party in 2015.</li>
+                <li>Our first date was at a cozy coffee shop downtown.</li>
+                <li>We got engaged on a beautiful beach in 2019.</li>
+                <li>Our favorite song is [Insert Favorite Song].</li>
+            </ul>
+        </section>
+    </main>
+    <footer class="hidden-paragraph">
+        <p>&copy; 2023 Bandhan.  All rights reserved.</p>
+    </footer>
+    <script>
+        // ... (existing script) ...
+
+        // New JavaScript for Countdown Timer
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set the wedding date (format: 'YYYY-MM-DD')
+            const weddingDate = new Date('2023-12-31').getTime();
+
+            // Update the countdown every second
+            const countdownElement = document.getElementById('countdown-timer');
+            setInterval(function() {
+                const now = new Date().getTime();
+                const timeRemaining = weddingDate - now;
+
+                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+                countdownElement.innerHTML = `<p>${days}d ${hours}h ${minutes}m ${seconds}s</p>`;
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
